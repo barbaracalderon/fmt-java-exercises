@@ -13,8 +13,10 @@ public class ProfessorCourseSelection {
             System.out.println("====== [Professores & Cursos] ======");
             System.out.println("1 - Adicionar professor");
             System.out.println("2 - Visualizar lista de professores");
-            System.out.println("3 - Adicionar curso");
-            System.out.println("4 - Visualizar lista de cursos");
+            System.out.println("3 - Remover professor");
+            System.out.println("4 - Adicionar curso");
+            System.out.println("5 - Visualizar lista de cursos");
+            System.out.println("6 - Remover curso");
             System.out.println("0 - Sair");
             System.out.println("===================================");
             System.out.print("Digite sua opção: ");
@@ -32,10 +34,16 @@ public class ProfessorCourseSelection {
                         showProfessors(professorList);
                         break;
                     case 3:
-                        addCourse(courseList);
+                        removeProfessor(professorList);
                         break;
                     case 4:
+                        addCourse(courseList);
+                        break;
+                    case 5:
                         showCourses(courseList);
+                        break;
+                    case 6:
+                        removeCourse(courseList);
                         break;
                     case 0:
                         printMessageAndLeave();
@@ -86,6 +94,18 @@ public class ProfessorCourseSelection {
         }
     }
 
+    private static void removeProfessor(ArrayList<String> professorList) {
+        if (professorList.isEmpty()) {
+            System.out.println("Lista vazia! Nenhum professor adicionado.\n");
+        } else {
+            Scanner scanner = new Scanner(System.in);
+            System.out.print("Digite o número do professor a remover: ");
+            int professorIndice = scanner.nextInt();
+            professorList.remove(professorIndice);
+            System.out.println("Professor removido da lista com sucesso.\n\n");
+        }
+    }
+
     private static void showCourses(ArrayList<String> courseList) {
         if (courseList.isEmpty()) {
             System.out.println("Lista vazia! Nenhuma disciplina adicionada.\n");
@@ -94,17 +114,27 @@ public class ProfessorCourseSelection {
 
             int i = 0;
             for (String s : courseList) {
-                System.out.println(i + "- " + s);
+                System.out.println(i + ". " + s);
                 i++;
             }
             System.out.println();
         }
     }
 
+    private static void removeCourse(ArrayList<String> courseList) {
+            if (courseList.isEmpty()) {
+                System.out.println("Lista vazia! Nenhuma disciplina adicionada.\n");
+            } else {
+                Scanner scanner = new Scanner(System.in);
+                System.out.print("Digite o número do curso a remover: ");
+                int cursoIndice = scanner.nextInt();
+                courseList.remove(cursoIndice);
+                System.out.println("Curso removido da lista com sucesso.\n\n");
+            }
+        }
+
     private static void printMessageAndLeave(){
         System.out.println("Desconectando o sistema...");
         System.out.println("...Até a próxima.");
-
     }
-
 }
