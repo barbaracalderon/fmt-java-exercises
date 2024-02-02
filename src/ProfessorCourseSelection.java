@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class ProfessorCourseSelection {
@@ -15,36 +16,39 @@ public class ProfessorCourseSelection {
             System.out.println("3 - Adicionar curso");
             System.out.println("4 - Visualizar lista de cursos");
             System.out.println("0 - Sair");
-            System.out.println("===================================\n");
+            System.out.println("===================================");
             System.out.print("Digite sua opção: ");
 
-            userOption = scanner.nextInt();
 
-            switch (userOption) {
-                case 1:
-                    addProfessor(professorList);
-                    break;
-                case 2:
-                    showProfessors(professorList);
-                    break;
-                case 3:
-                    addCourse(courseList);
-                    break;
-                case 4:
-                    showCourses(courseList);
-                    break;
-                case 0:
-                    printMessageAndLeave();
-                    break;
-                default:
-                    System.out.println("Opção inválida. Tente novamente.");
-            }
 
-            if (userOption == 0) {
-                break;
+            try {
+                userOption = scanner.nextInt();
+
+                switch (userOption) {
+                    case 1:
+                        addProfessor(professorList);
+                        break;
+                    case 2:
+                        showProfessors(professorList);
+                        break;
+                    case 3:
+                        addCourse(courseList);
+                        break;
+                    case 4:
+                        showCourses(courseList);
+                        break;
+                    case 0:
+                        printMessageAndLeave();
+                        break;
+                }
+                if (userOption == 0) {
+                    break;
+                }
+            } catch (InputMismatchException e) {
+                scanner.nextLine();
+                System.out.println("Opção inválida. Tente novamente.\n");
             }
         }
-
     }
 
     private static void addProfessor(ArrayList<String> professorList){
@@ -72,20 +76,26 @@ public class ProfessorCourseSelection {
             System.out.println("Lista vazia! Nenhum professor adicionado.\n");
         } else {
             System.out.println("Lista de professores abaixo:");
+
+            int i = 0;
             for (String s: professorList) {
-                System.out.println(s);
+                System.out.println(i + ". " + s);
+                i++;
             }
             System.out.println();
         }
     }
 
-    private static void showCourses(ArrayList<String> courseList){
+    private static void showCourses(ArrayList<String> courseList) {
         if (courseList.isEmpty()) {
             System.out.println("Lista vazia! Nenhuma disciplina adicionada.\n");
         } else {
             System.out.println("Lista de disciplinas abaixo:");
+
+            int i = 0;
             for (String s : courseList) {
-                System.out.println(s);
+                System.out.println(i + "- " + s);
+                i++;
             }
             System.out.println();
         }
