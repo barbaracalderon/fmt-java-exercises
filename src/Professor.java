@@ -1,16 +1,16 @@
 public class Professor {
     private final String nome;
-    private final String disciplina;
+    private final String especialidade;
     private String escola;
 
-    public Professor(String nome, String disciplina, String escola) {
+    public Professor(String nome, String especialidade, String escola) {
         this.nome = nome;
-        this.disciplina = disciplina;
+        this.especialidade = especialidade;
         this.escola = escola;
     }
 
     public void darAula() {
-        System.out.printf("A professora %s está lecionando a disciplina %s.%n", nome, disciplina);
+        System.out.printf("A professora %s está lecionando a disciplina %s.%n", nome, especialidade);
     }
 
     public void caminhar() {
