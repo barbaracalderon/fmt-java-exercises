@@ -1,6 +1,6 @@
 public class Jogador {
-    private final String nome;
-    private final int idade;
+    private String nome;
+    private int idade;
     private int pontuacao;
     private int numeroTentativas;
 
@@ -22,4 +22,37 @@ public class Jogador {
     public void adicionaTentativa() {
         System.out.printf("Jogador adiciona uma tentativa.");
     }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public int getIdade() {
+        return idade;
+    }
+
+    public void setIdade(int idade) {
+        this.idade = idade;
+    }
+
+    public int getPontuacao() {
+        return pontuacao;
+    }
+
+    public void setPontuacao(int pontuacao) {
+        this.pontuacao = pontuacao;
+    }
+
+    public int getNumeroTentativas() {
+        return numeroTentativas;
+    }
+
+    public void setNumeroTentativas(int numeroTentativas) {
+        this.numeroTentativas = numeroTentativas;
+    }
+
 }
