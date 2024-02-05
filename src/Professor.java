@@ -9,7 +9,7 @@ public class Professor {
         this.escola = escola;
     }
 
-    public void darAula() {
+    public void ensinar() {
         System.out.printf("A professora %s está lecionando a disciplina %s.%n", nome, especialidade);
     }
 
@@ -20,7 +20,7 @@ public class Professor {
     public static void main(String[] args) {
         Professor professor = new Professor("Maria da Silva", "Física", "Energia");
         professor.caminhar();
-        professor.darAula();
+        professor.ensinar();
     }
 }
 
