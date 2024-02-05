@@ -19,6 +19,7 @@ public class ProfessorCourseSelection {
             System.out.println("5 - Visualizar lista de cursos");
             System.out.println("6 - Remover curso");
             System.out.println("7 - Marcar curso como concluído");
+            System.out.println("8 - Mostrar disciplinas concluídas");
             System.out.println("0 - Sair");
             System.out.println("===================================");
             System.out.print("Digite sua opção: ");
@@ -49,7 +50,10 @@ public class ProfessorCourseSelection {
                         break;
                     case 7:
                         markAsCompleted(courseList, courseCompletedList);
-
+                        break;
+                    case 8:
+                        showCompletedCourses(courseCompletedList);
+                        break;
                     case 0:
                         printMessageAndLeave();
                         break;
@@ -145,6 +149,22 @@ public class ProfessorCourseSelection {
             System.out.print("Digite o número do curso concluído a adicionar: ");
             int cursoIndice = scanner.nextInt();
             courseCompletedList.add(courseList.get(cursoIndice));
+            courseList.remove(cursoIndice);
+        }
+    }
+
+    private static void showCompletedCourses(ArrayList<String> courseCompletedList) {
+        if (courseCompletedList.isEmpty()) {
+            System.out.println("Lista vazia! Nenhuma disciplina concluída.\n");
+        } else {
+            System.out.println("Lista de disciplinas concluídas:");
+
+            int i = 0;
+            for (String s : courseCompletedList) {
+                System.out.println(i + ". " + s);
+                i++;
+            }
+            System.out.println();
         }
     }
 
