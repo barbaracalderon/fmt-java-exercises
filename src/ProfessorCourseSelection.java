@@ -6,6 +6,7 @@ public class ProfessorCourseSelection {
     public static void main(String[] args) {
         ArrayList<String> courseList = new ArrayList<>();
         ArrayList<String> professorList = new ArrayList<>();
+        ArrayList<String> courseCompletedList = new ArrayList<>();
         Scanner scanner = new Scanner(System.in);
         int userOption;
 
@@ -17,6 +18,7 @@ public class ProfessorCourseSelection {
             System.out.println("4 - Adicionar curso");
             System.out.println("5 - Visualizar lista de cursos");
             System.out.println("6 - Remover curso");
+            System.out.println("7 - Marcar curso como concluído");
             System.out.println("0 - Sair");
             System.out.println("===================================");
             System.out.print("Digite sua opção: ");
@@ -45,6 +47,9 @@ public class ProfessorCourseSelection {
                     case 6:
                         removeCourse(courseList);
                         break;
+                    case 7:
+                        markAsCompleted(courseList, courseCompletedList);
+
                     case 0:
                         printMessageAndLeave();
                         break;
@@ -132,6 +137,16 @@ public class ProfessorCourseSelection {
                 System.out.println("Curso removido da lista com sucesso.\n\n");
             }
         }
+
+    private static void markAsCompleted(ArrayList<String> courseList, ArrayList<String> courseCompletedList) {
+        showCourses(courseList);
+        if (!courseList.isEmpty()) {
+            Scanner scanner = new Scanner(System.in);
+            System.out.print("Digite o número do curso concluído a adicionar: ");
+            int cursoIndice = scanner.nextInt();
+            courseCompletedList.add(courseList.get(cursoIndice));
+        }
+    }
 
     private static void printMessageAndLeave(){
         System.out.println("Desconectando o sistema...");
