@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
 public class Jogador {
     private String nome;
     private int idade;
@@ -9,6 +12,31 @@ public class Jogador {
         this.idade = idade;
         this.pontuacao = pontuacao;
         this.numeroTentativas = numeroTentativas;
+
+        Scanner scanner = new Scanner(System.in);
+
+        while (true) {
+            ArrayList<Jogador> listaMelhoresJogadores = MelhoresJogadores.getListaMelhoresJogadores();
+
+            if (checarNomeExiste(nome, listaMelhoresJogadores)) {
+                System.out.println("O nome informado já consta na lista de jogadores. Tente outro.");
+                nome = scanner.nextLine();
+            } else {
+                this.nome = nome;
+                break;
+            }
+        }
+
+        scanner.close();
+    }
+
+    public boolean checarNomeExiste(String nome, ArrayList<Jogador> listaMelhoresJogadores) {
+        for (Jogador jogador: listaMelhoresJogadores) {
+            if (jogador.getNome().equals(nome)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public void adicionaPontos() {

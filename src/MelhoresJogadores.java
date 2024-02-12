@@ -6,7 +6,7 @@ import java.util.List;
 
 public class MelhoresJogadores {
 
-    ArrayList<Jogador> listaMelhoresJogadores = new ArrayList<>();
+    static ArrayList<Jogador> listaMelhoresJogadores = new ArrayList<>();
 
     public void mostrarListaMelhoresJogadores() {
         if (listaMelhoresJogadores.isEmpty()) {
@@ -23,5 +23,8 @@ public class MelhoresJogadores {
         }
     }
 
+    public static ArrayList<Jogador> getListaMelhoresJogadores() {
+        return listaMelhoresJogadores;
+    }
 
 }
