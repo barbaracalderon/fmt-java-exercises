@@ -1,16 +1,23 @@
 import java.util.Scanner;
 
-public class Jogo {
+public class JogoPedraPapelTesoura {
 
     private Jogador melhorJogador;
     private int numeroJogadas;
+    private int idadeJogador;
+    private String nomeJogador;
+
+    private int pontuacaoJogador = 0;
+    private int numeroTentativas = 0;
+
 
     public void jogar() {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Iniciando o jogo # [Pedra-Papel-Tesoura] #");
+        System.out.println("Vamos jogar...");
 
         while (true) {
+
             System.out.println("Qual sua jogada? (Pe=Pedra) (P=Papel) (T=Tesoura) (S=Sair): ");
             String jogadaJogador = scanner.nextLine().toLowerCase();
 
@@ -31,7 +38,6 @@ public class Jogo {
                 break;
             }
 
-
             System.out.println("Escolha do computador: " + jogadaComputador);
             System.out.println("Escolha do jogador: " + jogadaJogador);
 
@@ -41,6 +47,8 @@ public class Jogo {
 
             if (resultado.equals("Jogador ganhou!")) {
                 melhorJogador.adicionaPontos();
+            } else {
+                melhorJogador.perdePontos();
             }
 
             melhorJogador.adicionaTentativa();
