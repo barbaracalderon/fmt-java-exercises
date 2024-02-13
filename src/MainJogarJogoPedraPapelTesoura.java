@@ -5,13 +5,6 @@ public class MainJogarJogoPedraPapelTesoura {
     public static MelhoresJogadores melhoresJogadores = new MelhoresJogadores();
     public static JogoPedraPapelTesoura jogoPedraPapelTesoura = new JogoPedraPapelTesoura();
 
-    public static Jogador jogador;
-
-    public static String nomeJogador;
-    public static int idadeJogador;
-    public static int pontuacaoJogador;
-    public static int numeroTentativas;
-
     public static void main(String[] args) {
         int userOption;
         Scanner scanner = new Scanner(System.in);
@@ -32,7 +25,6 @@ public class MainJogarJogoPedraPapelTesoura {
                         melhoresJogadores.mostrarListaMelhoresJogadores();
                         break;
                     case 2:
-                        coletarDadosJogador();
                         jogoPedraPapelTesoura.jogar();
                         break;
                     case 0:
@@ -47,22 +39,8 @@ public class MainJogarJogoPedraPapelTesoura {
                 scanner.nextLine();
                 System.out.println("Opção inválida. Tente novamente.\n");
             }
-        };
+        }
 
     }
 
-    public static void coletarDadosJogador() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Nome do Jogador: ");
-        nomeJogador = scanner.nextLine();
-
-        System.out.println("Idade: ");
-        idadeJogador = scanner.nextInt();
-
-        jogador = new Jogador(
-                nomeJogador,
-                idadeJogador,
-                pontuacaoJogador,
-                numeroTentativas);
-    };
 }

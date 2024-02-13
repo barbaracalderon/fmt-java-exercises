@@ -27,7 +27,6 @@ public class Jogador {
             }
         }
 
-        scanner.close();
     }
 
     public boolean checarNomeExiste(String nome, ArrayList<Jogador> listaMelhoresJogadores) {
@@ -40,18 +39,18 @@ public class Jogador {
     }
 
     public void adicionaPontos() {
-        System.out.printf("Jogador ganha 1 ponto.");
+        System.out.println("Jogador ganha 1 ponto.");
         pontuacao++;
     }
 
     public void perdePontos() {
 
-        System.out.printf("Jogador perdeu x pontos.");
+        System.out.println("Jogador perdeu 1 pontos.");
         pontuacao--;
     }
 
     public void adicionaTentativa() {
-        System.out.printf("Jogador adiciona uma tentativa.");
+        System.out.println("Jogador adiciona uma tentativa.");
         numeroTentativas++;
     }
 

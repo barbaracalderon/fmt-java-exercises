@@ -9,12 +9,24 @@ public class JogoPedraPapelTesoura {
 
     private int pontuacaoJogador = 0;
     private int numeroTentativas = 0;
+    Scanner scanner = new Scanner(System.in);
+
 
 
     public void jogar() {
-        Scanner scanner = new Scanner(System.in);
 
         System.out.println("Vamos jogar...");
+        System.out.println("Nome do Jogador: ");
+
+        nomeJogador = scanner.nextLine();
+        System.out.println("Idade: ");
+        idadeJogador = scanner.nextInt();
+
+        melhorJogador = new Jogador(
+                nomeJogador,
+                idadeJogador,
+                pontuacaoJogador,
+                numeroTentativas);
 
         while (true) {
 
@@ -54,8 +66,6 @@ public class JogoPedraPapelTesoura {
             melhorJogador.adicionaTentativa();
 
         }
-
-        scanner.close();
 
     }
 
