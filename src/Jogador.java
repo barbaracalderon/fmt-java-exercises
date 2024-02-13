@@ -41,17 +41,19 @@ public class Jogador {
     public void adicionaPontos() {
         System.out.println("Jogador ganha 1 ponto.");
         pontuacao++;
+        setPontuacao(pontuacao);
     }
 
     public void perdePontos() {
-
         System.out.println("Jogador perdeu 1 pontos.");
         pontuacao--;
+        setPontuacao(pontuacao);
     }
 
     public void adicionaTentativa() {
         System.out.println("Jogador adiciona uma tentativa.");
         numeroTentativas++;
+        setNumeroTentativas(numeroTentativas);
     }
 
     public String getNome() {
