@@ -15,38 +15,38 @@ public class Curso {
         Curso.cargaHoraria = cargaHoraria;
     }
 
-    public static void progresso() {
+    public void progresso() {
         System.out.println("Este curso está em progresso.");
     }
 
-    public static void notas() {
+    public void notas() {
         System.out.println("Este curso tem as notas do aluno.");
     }
 
-    public static void participacao() {
+    public void participacao() {
         System.out.println("Este curso tem alunos participando.");
     }
 
-    public static void mostrarInformacoes() {
+    public void mostrarInformacoes() {
+        System.out.println("- - - - - Informações Curso - - - - -");
         System.out.println("Nome: " + nome);
         System.out.println("Descrição: " + descricao);
         System.out.println("Professores: " + listaDeProfessores);
-
-
+        System.out.println("- - - - - - - - - - - - - - - - - - -");
     }
 
     public static void main(String[] args) {
         ArrayList<String> listaDeProfessores = new ArrayList<>();
         listaDeProfessores.add("Maria da Silva");
         listaDeProfessores.add("João da Silva");
-        new Curso("Física",
+        Curso curso = new Curso("Física",
                 "Disciplina de física mecânica e relativista.",
                 listaDeProfessores,
                 20);
-        mostrarInformacoes();
-        progresso();
-        notas();
-        participacao();
+        curso.mostrarInformacoes();
+        curso.progresso();
+        curso.notas();
+        curso.participacao();
     }
 
 
