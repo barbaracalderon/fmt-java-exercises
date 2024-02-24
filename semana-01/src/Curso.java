@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Curso {
 
@@ -7,8 +8,11 @@ public class Curso {
     static ArrayList<String> listaDeProfessores;
     static int cargaHoraria;
 
-    public Curso(String nome) {
+    public Curso(String nome, String descricao, ArrayList<String> listaDeProfessores, int cargaHoraria) {
         Curso.nome = nome;
+        Curso.descricao = descricao;
+        Curso.listaDeProfessores = listaDeProfessores;
+        Curso.cargaHoraria = cargaHoraria;
     }
 
     public static void progresso() {
@@ -23,12 +27,27 @@ public class Curso {
         System.out.println("Este curso tem alunos participando.");
     }
 
-    public static void setDescricao(String descricao) {
-        Curso.descricao = descricao;
+    public static void mostrarInformacoes() {
+        System.out.println("Nome: " + nome);
+        System.out.println("Descrição: " + descricao);
+        System.out.println("Professores: " + listaDeProfessores);
+
+
     }
 
-    public static void setCargaHoraria(int cargaHoraria) {
-        Curso.cargaHoraria = cargaHoraria;
+    public static void main(String[] args) {
+        ArrayList<String> listaDeProfessores = new ArrayList<>();
+        listaDeProfessores.add("Maria da Silva");
+        listaDeProfessores.add("João da Silva");
+        new Curso("Física",
+                "Disciplina de física mecânica e relativista.",
+                listaDeProfessores,
+                20);
+        mostrarInformacoes();
+        progresso();
+        notas();
+        participacao();
     }
+
 
 }
