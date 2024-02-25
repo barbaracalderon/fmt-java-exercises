@@ -88,13 +88,17 @@ public class Jogador {
         return false;
     }
 
+    public static boolean verificarIdadeValida(int idadeJogador) {
+        return idadeJogador <= 0 || idadeJogador >= 120;
+    }
+
     @Override
     public String toString() {
         return "Jogador {" +
-                "nome=" + getNome() +
-                "idade=" + getIdade() +
-                "pontuacao=" + getPontuacao() +
-                "numeroTentativas=" + getNumeroTentativas() +
+                " nome=" + getNome() +
+                " idade=" + getIdade() +
+                " pontuacao=" + getPontuacao() +
+                " numeroTentativas=" + getNumeroTentativas() +
                 "}";
     }
 
