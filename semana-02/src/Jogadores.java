@@ -18,9 +18,9 @@ public class Jogadores {
         return rankingDeJogadores;
         }
 
-    public void showListaJogadores() {
+    public static void showListaJogadores() {
         if (getListaJogadores().isEmpty()) {
-            System.out.println("Lista de jogadores está vazia.");
+            System.out.print("Lista de jogadores está vazia.");
         } else {
             for (Jogador jogador: getListaJogadores()) {
                 System.out.println(
@@ -30,7 +30,7 @@ public class Jogadores {
         }
     }
 
-    public void showRankingJogadores() {
+    public static void showRankingJogadores() {
         if (getListaJogadores().isEmpty()) {
             System.out.println("Lista de jogadores está vazia.");
         } else {
@@ -55,5 +55,18 @@ public class Jogadores {
     }
     }
 
+    public static void adicionarJogadorNaListaJogadores(Jogador jogadorAtual) {
+        listaDeJogadores.add(jogadorAtual);
+    }
+
+    public static boolean verificarJogadorExiste(String nomeJogadorAtual) {
+        boolean nomeExiste = false;
+
+        for (Jogador jogador: getListaJogadores()) {
+            nomeExiste = jogador.getNome().equals(nomeJogadorAtual);
+        }
+
+        return nomeExiste;
+    }
 
 }
