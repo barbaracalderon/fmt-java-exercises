@@ -4,7 +4,6 @@ import java.util.Random;
 
 public class JogoAdivinheMeuNumero {
 
-    static Scanner scanner = new Scanner(System.in);
     static private int guessRange = 10;
     static Random random = new Random();
     static private int numberChosen;
@@ -16,7 +15,7 @@ public class JogoAdivinheMeuNumero {
             System.out.print("Digite sua opção: ");
 
             try  {
-                int userOption = scanner.nextInt();
+                int userOption = Sistema.scanner.nextInt();
 
                 switch (userOption) {
                     case 0:
@@ -24,7 +23,7 @@ public class JogoAdivinheMeuNumero {
                         break;
                     case 1:
                         System.out.print("Digite valor para o range de adivinhação: ");
-                        guessRange = scanner.nextInt();
+                        guessRange = Sistema.scanner.nextInt();
                         break;
                     case 2:
                         jogar();
@@ -36,7 +35,7 @@ public class JogoAdivinheMeuNumero {
                 }
 
             } catch (InputMismatchException e) {
-                System.out.println("Opção inválida para Jogo Pedra-Papel-Tesoura. Tente novamente.");
+                System.out.println("Opção inválida para Jogo Adivinhe-Meu-Número. Tente novamente.");
                 break;
             }
 
@@ -55,7 +54,7 @@ public class JogoAdivinheMeuNumero {
     }
 
     public static void printJogoAdivinheMeuNumeroEndMessage() {
-        System.out.println("... Saindo Jogo Adivinhe Meu Número.");
+        System.out.println("... Saindo Jogo Adivinhe-Meu-Número.");
     }
 
     public static void jogar() {
@@ -65,7 +64,7 @@ public class JogoAdivinheMeuNumero {
         setNumberChosen();
 
         while (true) {
-            int guessNumber = scanner.nextInt();
+            int guessNumber = Sistema.scanner.nextInt();
             if (guessNumber == -1) {
                 System.out.println("Parando o jogo.");
                 break;
